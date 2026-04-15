@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy-900: #0a0e27;
+  --color-navy-800: #111638;
+  --color-navy-700: #1a2049;
+  --color-navy-600: #242b5a;
+  --color-surface: #13183a;
+  --color-surface-hover: #1a2050;
+  --color-electric: #3b82f6;
+  --color-electric-dim: #2563eb;
+  --color-cyan: #06b6d4;
+  --color-cyan-dim: #0891b2;
+  --color-emerald: #10b981;
+  --color-amber: #f59e0b;
+  --color-rose: #f43f5e;
+  --color-violet: #8b5cf6;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-bright: rgba(255, 255, 255, 0.12);
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --background: #0a0e27;
+  --foreground: #e2e8f0;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(19, 24, 58, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+}
+
+.glass-card-sm {
+  background: rgba(19, 24, 58, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+/* Glowing active sidebar item */
+.sidebar-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Pulse animation for active nodes */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(6, 182, 212, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.8); }
+}
+
+.pulse-node {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Shipment animation */
+@keyframes ship-move {
+  0% { transform: translateX(0); opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0.3; }
+}
+
+.ship-animate {
+  animation: ship-move 2s linear infinite;
+}
+
+/* Number counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.metric-value {
+  animation: count-up 0.3s ease-out;
+}
+
+/* Chart tooltip customization */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.custom-tooltip {
+  background: rgba(19, 24, 58, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
